@@ -33,13 +33,10 @@ def df(x):
 def ddf(x):
     return np.exp(-x) - np.cos(x + 1)
 
-
-
 x0 = 1.0  
 k_max = 100 
 eps_x = 1e-8 
 eps_f = 1e-8 
-
 
 xstar, err, res, conv = EulerChebyshev(f, df, ddf, x0, k_max, eps_x, eps_f)
 
