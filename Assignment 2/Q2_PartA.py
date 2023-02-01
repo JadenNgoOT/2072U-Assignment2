@@ -14,7 +14,7 @@ def EulerChebyshev(f, df, ddf, x0, k_max, eps_x, eps_f):
 
         print(f'Iteration {k + 1}: err={max_err:.4e}, res={res:.4e}')
 
-        if err < eps_x and res < eps_f:
+        if max_err < eps_x and res < eps_f:
             conv = True
             break
         x = x_new
@@ -43,5 +43,5 @@ eps_f = 1e-8
 
 xstar, err, res, conv = EulerChebyshev(f, df, ddf, x0, k_max, eps_x, eps_f)
 
-
-print(f'\n x* = {xstar}')
+if (conv):
+    print(f'\n x* = {xstar}')
