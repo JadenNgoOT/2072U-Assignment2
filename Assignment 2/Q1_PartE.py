@@ -2,17 +2,17 @@ import numpy as np
 
 def NewtonRaphson(f, df, x0, k_max, eps_x, eps_f):
     x = x0
-    conv = False  # flag for convergence
+    conv = False  
 
     for k in range(k_max):
-        fx = f(x)  # current function value
-        dx = -fx / df(x)  # update step
-        max_err = abs(dx)  # current error estimate
-        res = abs(fx)  # current residual
+        fx = f(x)  
+        dx = -fx / df(x)  
+        max_err = abs(dx)  
+        res = abs(fx)  
 
         print(f'Iteration {k + 1}: err={max_err:.4e}, res={res:.4e}')
 
-        if err < eps_x and res < eps_f:  # If converged ...
+        if max_err < eps_x and res < eps_f:
             conv = True
             break
         x = x + dx
@@ -35,4 +35,5 @@ eps_f = 1.0
 
 xstar, err, res, conv = NewtonRaphson(f, df, x0, k_max, eps_x, eps_f)
 
-print(f'\n x* = {xstar}')
+if (conv):
+    print(f'\n x* = {xstar}')
