@@ -13,7 +13,7 @@ def EulerChebyshev(f, df, ddf, x0, k_max, eps_x, eps_f):
         x_new = x - (2 * fx * df_x) / (2 * (df_x ** 2) - fx * ddf_x)
         max_err = abs(x_new - x)  
         res = abs(fx)
-        err_arr.append(err)
+        err_arr.append(max_err)
 
         print(f'Iteration {k + 1}: err={max_err:.4e}, res={res:.4e}')
 
