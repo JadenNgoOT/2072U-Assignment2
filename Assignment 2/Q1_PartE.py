@@ -10,7 +10,7 @@ def NewtonRaphson(f, df, x0, k_max, eps_x, eps_f):
         max_err = abs(dx)  # current error estimate
         res = abs(fx)  # current residual
 
-        print(f'Iteration {k + 1}: max_err={err:.4e}, res={res:.4e}')
+        print(f'Iteration {k + 1}: err={max_err:.4e}, res={res:.4e}')
 
         if err < eps_x and res < eps_f:  # If converged ...
             conv = True
