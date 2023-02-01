@@ -4,7 +4,7 @@ def EulerChebyshev(f, df, ddf, x0, k_max, eps_x, eps_f):
     x = x0
     conv = False
 
-    for k in range(kMax):
+    for k in range(k_max):
         fx = f(x)
         df_x = df(x)
         ddf_x = ddf(x)
