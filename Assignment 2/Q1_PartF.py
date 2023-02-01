@@ -43,7 +43,7 @@ def NewtonRaphson(f, df, x0, k_max, eps_x, eps_f):
     conv = False  # flag for convergence
     err_arr = []
 
-    for k in range(kMax):
+    for k in range(k_max):
         fx = f(x)  # current function value
         dx = -fx / df(x)  # update step
         max_err = abs(dx)  # current error estimate
