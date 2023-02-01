@@ -72,8 +72,8 @@ x0 = 1
 k_max = 100
 eps_x = 10e-12
 eps_f = 1.0
-a0=0
-b0=2
+a0 = 0
+b0 = 2
 
 x_bis, err_bis, conv_bis = bisect(f, 0, 2, k_max, eps_x, eps_f)
 x_nr, err_nr, res_nr, conv_nr = NewtonRaphson(f, df, x0, k_max, eps_x, eps_f)
