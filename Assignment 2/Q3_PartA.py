@@ -1,46 +1,40 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
-def NewtonRaphson(f, df, x0, kMax, eps_x, eps_f):
-    # Input: initial point, max number of iterations, tolerance for error and residual
-
+def NewtonRaphson(f, df, x0, k_max, eps_x, eps_f):
     x = x0
-    conv = False  # flag for convergence
-    errs = []
+    conv = False
+    err_arr = []
 
-    for k in range(kMax):
-        fx = f(x)  # current function value
-        dx = -fx / df(x)  # update step
-        err = abs(dx)  # current error estimate
-        res = abs(fx)  # current residual
-        errs.append(err)
+    for k in range(k_max):
+        fx = f(x) 
+        dx = -fx / df(x) 
+        max_err = abs(dx)  
+        res = abs(fx)  
+        err_arr.append(max_err)
 
-        print(f'Iteration {k + 1}: err={err:.4e}, res={res:.4e}')
+        print(f'Iteration {k + 1}: err={max_err:.4e}, res={res:.4e}')
 
-        if err < eps_x and res < eps_f:  # If converged ...
-            print("Converged!")
+        if err < eps_x and res < eps_f:  
             conv = True
             break
+            
         x = x + dx
 
     if (conv == False):
-        print("No convergence!")
+        print(f'No convergence after {k_max} interations')
 
-    return x, errs, res, conv
+    return x, err_arr, res, conv
 
 def f(x):
     return 4*x**4 - 8*x**3 + 7*x**2 - 3*x + 0.5
 
-
-#  put function definition of df here (derivative of f)
 def df(x):
     return 16 * x**3 - 24 * x**2 + 14 * x - 3
 
 def f2(x):
     return np.exp(x)**(-x) + np.cos(x+1) - 1
 
-
-#  put function definition of df here (derivative of f)
 def df2(x):
     return -np.exp(-x) - np.sin(x+1)
 
