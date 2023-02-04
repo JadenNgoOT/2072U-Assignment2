@@ -15,7 +15,7 @@ def NewtonRaphson(f, df, x0, k_max, eps_x, eps_f):
 
         print(f'Iteration {k + 1}: err={max_err:.4e}, res={res:.4e}')
 
-        if err < eps_x and res < eps_f:  
+        if max_err < eps_x and res < eps_f:
             conv = True
             break
             

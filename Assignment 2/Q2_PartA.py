@@ -6,9 +6,9 @@ def EulerChebyshev(f, df, ddf, x0, k_max, eps_x, eps_f):
 
     for k in range(k_max):
         fx = f(x)
-        df_x = df(x)
-        ddf_x = ddf(x)
-        x_new = x - (2 * fx * df_x) / (2 * (df_x ** 2) - fx * ddf_x)
+        dfx = df(x)
+        ddfx = ddf(x)
+        x_new = x - (fx/dfx) - (ddfx/(2*fx)) * ((fx/dfx)**2)
         max_err = abs(x_new - x) 
         res = abs(fx)
 
